@@ -1,38 +1,138 @@
-.App {
-  text-align: center;
+body{
+  color: #333333;
+  background-color: #d9d9d9;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header{
+  display: flex;
+  justify-content: space-between; /* 左右に要素を配置 */
+  align-items: center;
+  background-color: #83d191;
+  padding: 16px 32px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header-title{
+  color: #FDFDFD;
+  font-size: 32px;
+  text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header a{
+  color: rgba(253, 253, 253);  /*カラーコードは#FDFDFD */
+}
+
+header a:hover{
+  color: rgba(253, 253, 253, 0.7),  /*カラーコードは#FDFDFD */ 
+}
+
+.flex-box{
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.flex-box-posts{
+  margin: 32px 64px 0; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.flexbox-posts-inside{
+  width: 100%;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.title{
+  font-size: 24px;
+  align-self: flex-start;
+}
+
+table{
+  margin-top: 16px;
+  width: 360px;
+  table-layout: fixed; /* 表の横幅を固定 */
+  border-collapse: collapse; /* テーブルの枠線を1本に変更 */
+  background-color: #FDFDFD;
+}
+
+td{
+  word-wrap: break-word;
+  max-width: 100%;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.inputThreadName{
+  box-sizing: border-box;
+  margin-top: 16px;
+  width: 300px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.underInput{
+  box-sizing: border-box;
+  width: 300px;
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.createBtn{
+  padding: 4px 16px;
+  background-color: rgba(131,209,145,1);
+  color: #FDFDFD;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.postBtn{
+  width: 300px;
+  margin-top: 16px;
+  padding: 4px 0px;
+  background-color: rgba(131,209,145,1);
+  color: #FDFDFD;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover{
+  background-color: rgba(131,209,145,0.8);
+}
+
+.posts-left{
+  width: 400px;
+}
+
+.post{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px 16px;
+  margin-bottom: 8px;
+  word-wrap: break-word;
+  background-color: #FDFDFD;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #333333;
+}
+
+.posts-right{
+  width: 360px;
+}
+
+.inputPost{
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
 }
