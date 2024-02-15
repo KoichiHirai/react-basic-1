@@ -5,7 +5,7 @@ const Posts = () => {
   const location = useLocation();
   const {id, title} = location.state;
   
-  const [postData, setPostData] = useState({});
+  const [postData, setPostData] = useState([]);
   const [postContent, setPostContent] = useState("");
 
   const getPosts = async () => {
@@ -13,7 +13,7 @@ const Posts = () => {
       const response = await fetch(`https://railway.bulletinboard.techtrain.dev/threads/${id}/posts?offset=0`);
       // レスポンスのボディをJSONとして取得
       const data = await response.json();
-      setPostData(data);
+      setPostData(data.posts);
     } catch (error) {
       // エラーが発生した場合の処理
       console.error('Error fetching data: ', error);
@@ -44,30 +44,26 @@ const Posts = () => {
   };
 
   return(
-    Object.keys(postData).length > 0 ?(
-      <div className="flex-box-posts">
-        <div className="title">{title}</div>
-        <div className='flexbox-posts-inside'>
-          <div className='posts-left'>
-            {
-              postData.posts.length > 0 ? (
-                postData.posts.map((value) => 
-                  <div key={value.id} className="post">{value.post}</div>
-                )
-              ) : (
-                <div>Postがありません</div>
+    <div className="flex-box-posts">
+      <div className="title">{title}</div>
+      <div className='flexbox-posts-inside'>
+        <div className='posts-left'>
+          {
+            postData.length > 0 ? (
+              postData.map((value) => 
+                <div key={value.id} className="post">{value.post}</div>
               )
-            }
-          </div>
-          <div className="post-right">
-            <input className='inputPost' type='text' placeholder='投稿しよう' value={postContent} onChange={inputChange} />
-            <button className='postBtn' onClick={createPost}>投稿</button> 
-          </div>
+            ) : (
+              <div>Postがありません</div>
+            )
+          }
+        </div>
+        <div className="post-right">
+          <input className='inputPost' type='text' placeholder='投稿しよう' value={postContent} onChange={inputChange} />
+          <button className='postBtn' onClick={createPost}>投稿</button> 
         </div>
       </div>
-    ) : (
-      <div></div>
-    )
-  );
+    </div>
+  )
 }
 export default Posts;
